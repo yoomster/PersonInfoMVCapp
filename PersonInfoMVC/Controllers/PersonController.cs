@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PersonInfoMVC.Models;
+using System;
 
 namespace PersonInfoMVC.Controllers
 {
@@ -16,12 +18,13 @@ namespace PersonInfoMVC.Controllers
         public ActionResult Create()
         {
             return View();
+
         }
 
         // POST: PersonController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(IFormCollection collection, PersonModel person)
         {
             try
             {
