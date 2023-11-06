@@ -14,7 +14,7 @@ namespace PersonInfoMVC.Models
         public string LastName { get; set; }
 
 
-        [Display(Name = "IsActive user")]
+        [Display(Name = "Active user")]
         public bool IsActive{ get; set; } = false;
     }
 }

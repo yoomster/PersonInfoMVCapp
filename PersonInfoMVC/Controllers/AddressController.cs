@@ -1,48 +1,42 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PersonInfoMVC.Models;
-using System;
 
 namespace PersonInfoMVC.Controllers
 {
-    public class PersonController : Controller
+    public class AddressController : Controller
     {
-        private readonly ILogger<PersonController> _logger;
+        private readonly ILogger<AddressController> _logger;
 
-        public PersonController(ILogger<PersonController> logger)
+        public AddressController(ILogger<AddressController> logger)
         {
             _logger = logger;
         }
 
-        List<PersonModel> people = new();
-
-        // GET: PersonController
+        // GET: AddressController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: PersonController/Create
+        // GET: AddressController/Create
         public ActionResult Create()
         {
             return View();
-
         }
 
-        // POST: PersonController/Create
+        // POST: AddressController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PersonModel person)
+        public ActionResult Create(AddressModel data)
         {
             if (ModelState.IsValid == false)
             {
-                _logger.LogWarning("The user submitted an invalid person upon Create");
+                _logger.LogWarning("The user submitted invalid address upon Create");
             }
-
+  
             try
             {
-                people.Add(person);
-
                 return RedirectToAction(nameof(Index));
             }
             catch
